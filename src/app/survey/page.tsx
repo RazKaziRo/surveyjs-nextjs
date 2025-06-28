@@ -1,6 +1,9 @@
-import dynamic from 'next/dynamic';
-const SurveyComponent = dynamic(() => import("@/components/Survey"), { ssr: false });
+'use client';
 
+import dynamic from 'next/dynamic';
+const SurveyComponent = dynamic(() => import("@/components/Survey"), { 
+  loading: () => <p>Loading...</p>
+});
 
 export default function Survey() {
   return (

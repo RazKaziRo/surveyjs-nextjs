@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "jspdf-autotable": "^3.8.2",
-    "next": "14.1.0",
+    "next": "^15",
     "react": "^18",
     "react-dom": "^18",
     "survey-analytics": "latest",
@@ -28,8 +28,8 @@
     "@types/react-dom": "^18",
     "@types/wordcloud": "^1.2.2",
     "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
+    "eslint": "^9",
+    "eslint-config-next": "^15",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
