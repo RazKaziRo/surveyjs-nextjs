@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ICreatorOptions } from "survey-creator-core";
 import { SurveyCreatorComponent, SurveyCreator } from "survey-creator-react";
 import "survey-core/survey-core.css";
@@ -16,18 +16,35 @@ const defaultCreatorOptions: ICreatorOptions = {
 };
 
 export default function SurveyCreatorWidget(props: { json?: Object, options?: ICreatorOptions }) {
-  let [creator, setCreator] = useState<SurveyCreator>();
+  const [creator, setCreator] = useState<SurveyCreator | null>(null);
+  const [isClient, setIsClient] = useState(false);
 
-  if (!creator) {
-    creator = new SurveyCreator(props.options || defaultCreatorOptions);
-    creator.saveSurveyFunc = (no: number, callback: (num: number, status: boolean) => void) => {
-      console.log(JSON.stringify(creator?.JSON));
-      callback(no, true);
-    };
-    setCreator(creator);
+  useEffect(() => {
+    setIsClient(true);
+    
+    if (!creator) {
+      const newCreator = new SurveyCreator(props.options || defaultCreatorOptions);
+      newCreator.saveSurveyFunc = (no: number, callback: (num: number, status: boolean) => void) => {
+        console.log(JSON.stringify(newCreator?.JSON));
+        callback(no, true);
+      };
+      setCreator(newCreator);
+    }
+  }, [creator, props.options]);
+
+  useEffect(() => {
+    if (creator) {
+      creator.JSON = props.json || defaultJson;
+    }
+  }, [creator, props.json]);
+
+  if (!isClient) {
+    return <div>Loading...</div>;
   }
 
-  creator.JSON = props.json || defaultJson;
+  if (!creator) {
+    return <div>Initializing...</div>;
+  }
 
   return (
     <div style={{ height: "80vh", width: "100%" }}>

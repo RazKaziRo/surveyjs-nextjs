@@ -3,13 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-dropdown-menu": "^2.1.15",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-select": "^2.2.5",
+    "@radix-ui/react-slot": "^1.2.3",
+    "ace-builds": "latest",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "jspdf-autotable": "^3.8.2",
+    "lucide-react": "^0.525.0",
     "next": "^15",
     "react": "^18",
     "react-dom": "^18",
@@ -19,7 +28,8 @@
     "survey-creator-react": "latest",
     "survey-pdf": "latest",
     "survey-react-ui": "latest",
-    "ace-builds": "latest",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7",
     "wordcloud": "^1.2.2"
   },
   "devDependencies": {

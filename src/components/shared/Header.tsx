@@ -10,7 +10,7 @@ export default function Header() {
       <h1 className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
             <Image
-                className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert h-8"
+                className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert h-8 w-auto"
                 src="/next.svg"
                 alt="Next.js Logo"
                 width={180}
@@ -59,6 +59,14 @@ export default function Header() {
             prefetch={false}
           >
             {"PDF Generator"}
+          </Link>
+          <Link
+            className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+            key={8}
+            href={{pathname: "/shadcn-demo"}}
+            prefetch={false}
+          >
+            {"shadcn/ui Demo"}
           </Link>
       </nav>
     </header>
